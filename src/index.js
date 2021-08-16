@@ -98,7 +98,6 @@ const { GH_TOKEN, GIST_ID, USERNAME, DAYS } = process.env;
             patch,
           })
         )
-        .filter((c) => !["txt","csv","json"].includes(c.path.split(".")[1]))
       );
 
     const langs = await runLinguist(files);
