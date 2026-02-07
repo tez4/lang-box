@@ -1,6 +1,6 @@
-import { ApiClient } from "./api";
-import { createContent } from "./text";
-import { runLinguist } from "./linguist";
+import { ApiClient } from "./api.js";
+import { createContent } from "./text.js";
+import { runLinguist } from "./linguist.js";
 
 const { GH_TOKEN, GIST_ID, USERNAME, DAYS } = process.env;
 
@@ -45,9 +45,7 @@ const { GH_TOKEN, GIST_ID, USERNAME, DAYS } = process.env;
         const recentPushEvents = pushEvents.filter(
           ({ created_at }) => new Date(created_at) > fromDate
         );
-        const isEnd = pushEvents.some(
-          ({ created_at }) => !(new Date(created_at) > fromDate)
-        );
+        const isEnd = recentPushEvents.length < pushEvents.length;
         console.log(`${recentPushEvents.length} events fetched.`);
 
         commits.push(

@@ -1,4 +1,4 @@
-import fetch from "node-fetch";
+import fetch from 'node-fetch';
 
 export class ApiClient {
   constructor(token) {
@@ -12,6 +12,7 @@ export class ApiClient {
         Authorization: `bearer ${this.token}`,
         "Content-Type": "application/json",
         Accept: "application/vnd.github.v3+json",
+        "X-GitHub-Api-Version": "2022-11-28",
       },
       body: JSON.stringify(body),
     });
